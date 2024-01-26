@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captcha Generator & Verifier</title>
+</head>
+<body>
+    <h1>Captcha Generator & Verifier</h1>
+    <div id="container"></div>
+    <input type="text" name="" id="user-input" placeholder="Enter the Code">
+    <button id="verify-input" onclick="verifyCaptcha()">Verify</button>
+    <p id="result"></p>
+    <button onclick="generateCaptcha()">Generate Captcha</button>
+
+
+    <script>
+        var container = document.getElementById("container")
+        var userinput = document.getElementById("user-input") 
+        var verifyinput = document.getElementById("verify-input")
+        var result = document.getElementById("result")
+
+
+        function captchaGenerator(length) {
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+
+            var code  =''
+
+            for(i=0; i<length; i++){
+                code += characters.charAt(Math.floor(Math.random()*characters.length))
+            }
+            return code;
+        }
+
+        function generateCaptcha() {
+            var code = captchaGenerator(6)
+            container.textContent = code
+            userinput.value = ''
+            result.textContent = ''
+        }
+        
+        function verifyCaptcha() {
+            var captchavalue = container.textContent
+            var inputValue = userinput.value
+            if( captchavalue === inputValue) {
+                result.textContent = "Captcha Matched"
+            }
+            else {
+                result.textContent ="Mismatched"
+            }
+        }
+
+       
+        generateCaptcha(6)
+
+
+
+    </script>
+</body>
+</html>

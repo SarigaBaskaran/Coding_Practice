@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+    
+    <div id="quiz-container">
+         <h1>Interactive Quiz</h1>
+        <form id="quiz-form">
+
+            <div class="question" >
+                <p>1. What is the capital of France?</p>
+                <label>
+                    <input type="radio" name="q1" value="paris" > Paris
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="london" > London
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="berlin" > Berlin
+                </label>
+            </div>
+
+            <div class="question" >
+                <p>2. Which planet is known as the Red Planet?</p>
+                <label>
+                    <input type="radio" name="q2" value="earth"> Earth
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="mars"> Mars
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="venus"> Venus
+                </label>
+            </div>
+
+            <div class="question" >
+                <p>3. What is the capital of Japan?</p>
+                <label>
+                    <input type="radio" name="q3" value="tokyo"> Tokyo
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="beijing"> Beijing
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="seoul"> Seoul
+                </label>
+            </div>
+            <br>
+
+            <button type="button"
+             onclick="submitQuiz()"
+              class="btn" >Submit</button>
+        </form>
+
+         <div >
+            <h1>Interactive Quiz</h1>
+            <h3>Your quiz result</h3>
+            <p id="score-container"></p>
+         </div>
+    </div>
+   
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+           
+            var q1Answer =  document.querySelector('input[name="q1"]:checked');
+
+            if(q1Answer && q1Answer.value === "paris"){
+                score++
+            }
+
+             var q2Answer = document.querySelector('input[name="q2"]:checked');
+            if (q2Answer && q2Answer.value === "mars") {
+                 score++;
+            }
+
+            var q3Answer = document.querySelector('input[name="q3"]:checked');
+             if (q3Answer && q3Answer.value === "tokyo") {
+                score++;
+            }
+
+            resultOfQuiz(score)
+        }
+
+        function resultOfQuiz(score) {
+            var scorecontainer = document.getElementById("score-container")
+
+            scorecontainer.textContent = "Score: " + score ;
+        } 
+
+      
+    </script>
+</body>
+</html>
+
+
+

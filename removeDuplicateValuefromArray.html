@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove Duplicate Value</title>
+  </head>
+  <body>
+    <h1 id="firstArray"></h1>
+    <p id="uniquevalue"></p>
+    <script>
+      var arr1 = [1, 2, 3, 4, 5, 1, 6, 2, 7, 1, 3];
+      var firstArray = document.getElementById("firstArray");
+      firstArray.innerHTML = "input : " + arr1;
+
+      function removeDuplicates(arr) {
+        return [...new Set(arr)];
+      }
+      const uniqueValues = removeDuplicates(arr1);
+
+      var uniquevalue = document.getElementById("uniquevalue");
+      uniquevalue.innerHTML = uniqueValues;
+    </script>
+  </body>
+</html>
